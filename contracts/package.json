@@ -1,0 +1,23 @@
+{
+  "name": "wallet-verification-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for wallet verification on Polygon Amoy",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network polygonAmoy",
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "fp-ts": "^2.16.11"
+  }
+}
+
+
+
+
+
