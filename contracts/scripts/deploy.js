@@ -6,7 +6,7 @@
 const hre = require("hardhat");
 
 async function main() {
-  console.log("🚀 Deploying WalletVerification contract to Polygon Amoy...");
+  console.log(" Deploying WalletVerification contract to Polygon Amoy...");
 
   // Get the contract factory
   const WalletVerification = await hre.ethers.getContractFactory("WalletVerification");

@@ -507,3 +507,6 @@ After deployment, you can verify:
 This is why blockchain is called "immutable" - the history is permanent, even if the current state can be updated!
 
 
+
+
+
