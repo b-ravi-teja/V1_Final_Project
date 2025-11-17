@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 import './AdminPanel.css';
 
 function AdminPanel() {
@@ -37,7 +38,7 @@ function AdminPanel() {
     setStatusMessage('');
 
     try {
-      const response = await axios.post('/api/admin/login', loginData);
+      const response = await axios.post(`${API_BASE_URL}/api/admin/login`, loginData);
 
       if (response.data.success) {
         setIsLoggedIn(true);
@@ -56,7 +57,7 @@ function AdminPanel() {
    */
   const loadAllWallets = async () => {
     try {
-      const response = await axios.get('/api/admin/wallets');
+      const response = await axios.get(`${API_BASE_URL}/api/admin/wallets`);
       if (response.data.success) {
         setAllWallets(response.data.data);
       }
@@ -79,7 +80,7 @@ function AdminPanel() {
         throw new Error('Please enter a wallet address');
       }
 
-      const response = await axios.post('/api/admin/verify', {
+      const response = await axios.post(`${API_BASE_URL}/api/admin/verify`, {
         walletAddress: verifyAddress
       });
 

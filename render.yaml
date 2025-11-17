@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: wallet-verification-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: CONTRACT_ADDRESS
+        sync: false
+      - key: POLYGON_AMOY_RPC_URL
+        value: https://rpc-amoy.polygon.technology/
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+

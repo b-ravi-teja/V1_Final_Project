@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { ethers } from 'ethers';
 import { create } from 'ipfs-http-client';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 import './RegistrationForm.css';
 
 // IPFS Configuration - using public IPFS gateway
@@ -128,7 +129,7 @@ function RegistrationForm({ walletAddress }) {
     try {
       setStatusMessage('💾 Saving to database...');
 
-      const response = await axios.post('/api/wallet/register', {
+      const response = await axios.post(`${API_BASE_URL}/api/wallet/register`, {
         walletAddress,
         hash
       });
