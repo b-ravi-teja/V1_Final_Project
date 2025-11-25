@@ -85,7 +85,7 @@ function AdminPanel() {
       });
 
       setVerificationResult(response.data);
-      
+
       if (response.data.success) {
         setStatusMessage('✅ Wallet verified successfully!');
         loadAllWallets(); // Refresh wallet list
@@ -175,11 +175,7 @@ function AdminPanel() {
           </div>
         )}
 
-        <div className="admin-hint">
-          <p>Default credentials:</p>
-          <p>Username: <code>block_test</code></p>
-          <p>Password: <code>block</code></p>
-        </div>
+
       </div>
     );
   }
@@ -214,8 +210,8 @@ function AdminPanel() {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="verify-button"
             disabled={isVerifying}
           >
