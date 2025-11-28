@@ -9,6 +9,8 @@ import WalletConnect from './components/WalletConnect';
 import RegistrationForm from './components/RegistrationForm';
 import AdminPanel from './components/AdminPanel';
 
+import FloatingCubes from './components/FloatingCubes';
+
 function App() {
   const [walletAddress, setWalletAddress] = useState('');
   const [isConnected, setIsConnected] = useState(false);
@@ -47,7 +49,7 @@ function App() {
     if (window.ethereum) {
       // Listen for account changes
       window.ethereum.on('accountsChanged', handleAccountsChanged);
-      
+
       // Listen for network changes
       window.ethereum.on('chainChanged', handleChainChanged);
     }
@@ -86,8 +88,8 @@ function App() {
         return;
       }
 
-      const accounts = await window.ethereum.request({ 
-        method: 'eth_requestAccounts' 
+      const accounts = await window.ethereum.request({
+        method: 'eth_requestAccounts'
       });
 
       setWalletAddress(accounts[0]);
@@ -108,19 +110,20 @@ function App() {
 
   return (
     <div className="App">
+      <FloatingCubes />
       <header className="App-header">
         <h1>🔐 Blockchain Wallet Verification</h1>
         <p>Secure identity verification using Polygon, IPFS, and MetaMask</p>
       </header>
 
       <div className="tab-container">
-        <button 
+        <button
           className={`tab ${activeTab === 'user' ? 'active' : ''}`}
           onClick={() => setActiveTab('user')}
         >
           User Registration
         </button>
-        <button 
+        <button
           className={`tab ${activeTab === 'admin' ? 'active' : ''}`}
           onClick={() => setActiveTab('admin')}
         >
@@ -131,7 +134,7 @@ function App() {
       <main className="main-content">
         {activeTab === 'user' ? (
           <>
-            <WalletConnect 
+            <WalletConnect
               walletAddress={walletAddress}
               isConnected={isConnected}
               connectWallet={connectWallet}
@@ -139,7 +142,7 @@ function App() {
             />
 
             {isConnected && (
-              <RegistrationForm 
+              <RegistrationForm
                 walletAddress={walletAddress}
               />
             )}
